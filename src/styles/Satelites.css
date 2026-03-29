@@ -243,6 +243,12 @@
   color: var(--color-accent);
 }
 
+.extra-tag {
+  background: rgba(0, 255, 136, 0.1);
+  border-color: rgba(0, 255, 136, 0.2);
+  color: var(--color-accent-alt);
+}
+
 .sat-specs {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

@@ -3,61 +3,29 @@ import "../styles/Satelites.css";
 
 const satelites = [
   {
-    nome: "SGDC-1",
-    bandas: ["Banda Ka", "Banda X"],
-    operador: "Telebras",
-    posicao: "75° Oeste",
-    lancamento: "2017",
-    cobertura: "Brasil + Oceano Atlântico",
+    nome: "Anik G1",
+    bandas: ["Banda C"],
+    operador: "Telesat",
+    posicao: "107.3° Oeste",
+    lancamento: "2013",
+    cobertura: "Américas",
     status: "OPERACIONAL",
     descricao:
-      "Satélite Geoestacionário de Defesa e Comunicações Estratégicas do governo brasileiro.",
+      "Satélite de alta capacidade da Telesat para serviços de telecomunicações em Banda C nas Américas.",
   },
   {
-    nome: "Star One C4",
-    bandas: ["Banda C", "Banda Ku"],
-    operador: "Embratel",
-    posicao: "70° Oeste",
-    lancamento: "2015",
-    cobertura: "América do Sul",
-    status: "OPERACIONAL",
-    descricao:
-      "Satélite de telecomunicações da Embratel para serviços de TV e dados.",
-  },
-  {
-    nome: "Amazonas 5",
-    bandas: ["Banda Ka", "Banda Ku"],
-    operador: "Hispasat",
-    posicao: "61° Oeste",
-    lancamento: "2017",
-    cobertura: "América Latina",
-    status: "OPERACIONAL",
-    descricao:
-      "Satélite de alta capacidade para serviços de banda larga e DTH.",
-  },
-  {
-    nome: "SES-14",
-    bandas: ["Banda C", "Banda Ku"],
-    operador: "SES",
-    posicao: "47.5° Oeste",
-    lancamento: "2018",
-    cobertura: "Américas + Atlântico",
-    status: "OPERACIONAL",
-    descricao:
-      "Satélite híbrido de alta potência para comunicações marítimas e aeronáuticas.",
-  },
-  {
-    nome: "Eutelsat 65 West A",
-    bandas: ["Banda C", "Banda Ku", "Banda Ka"],
-    operador: "Eutelsat",
-    posicao: "65° Oeste",
-    lancamento: "2016",
+    nome: "Telesat T14 R",
+    bandas: ["Banda Ku"],
+    operador: "Telesat",
+    posicao: "63° Oeste",
+    lancamento: "2014",
     cobertura: "Brasil + América Latina",
     status: "OPERACIONAL",
-    descricao: "Satélite multibanda para broadcasting e serviços de dados.",
+    descricao:
+      "Satélite Telesat com cobertura regional em Banda Ku para comunicações corporativas e internet.",
   },
   {
-    nome: "Telstar 12V",
+    nome: "Telesat T12 V",
     bandas: ["Banda Ku"],
     operador: "Telesat",
     posicao: "15° Oeste",
@@ -65,7 +33,30 @@ const satelites = [
     cobertura: "Atlântico + Europa + África",
     status: "OPERACIONAL",
     descricao:
-      "Satélite para serviços de comunicação marítima e conectividade empresarial.",
+      "Satélite para serviços de comunicação marítima, conectividade empresarial e backhaul em Banda Ku.",
+  },
+  {
+    nome: "Telesat T19 V",
+    bandas: ["Banda Ku"],
+    operador: "Telesat",
+    posicao: "63° Oeste",
+    lancamento: "2018",
+    cobertura: "Brasil + América Latina",
+    status: "OPERACIONAL",
+    descricao:
+      "Satélite com Beam Regional e Spots 01 a 05 para cobertura direcionada de alta performance em Banda Ku.",
+    extras: ["Beam Regional", "Spots 01 a 05"],
+  },
+  {
+    nome: "SGDC",
+    bandas: ["Banda Ka"],
+    operador: "Telebras",
+    posicao: "75° Oeste",
+    lancamento: "2017",
+    cobertura: "Brasil + Oceano Atlântico",
+    status: "OPERACIONAL",
+    descricao:
+      "Satélite Geoestacionário de Defesa e Comunicações Estratégicas do governo brasileiro em Banda Ka.",
   },
 ];
 
@@ -157,6 +148,12 @@ const Satelites = () => {
                       {banda}
                     </span>
                   ))}
+                  {sat.extras &&
+                    sat.extras.map((extra, i) => (
+                      <span key={`extra-${i}`} className="banda-tag extra-tag">
+                        {extra}
+                      </span>
+                    ))}
                 </div>
 
                 <div className="sat-specs">
