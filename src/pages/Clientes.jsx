@@ -2,44 +2,18 @@ import React from "react";
 import "../styles/Clientes.css";
 
 const clientes = [
-  { nome: "Petrobras", setor: "Petróleo & Gás" },
-  { nome: "Vale", setor: "Mineração" },
-  { nome: "JBS", setor: "Agronegócio" },
-  { nome: "Suzano", setor: "Papel e Celulose" },
-  { nome: "Marfrig", setor: "Agronegócio" },
-  { nome: "BRF", setor: "Alimentos" },
-  { nome: "Cargill", setor: "Agronegócio" },
-  { nome: "IBAMA", setor: "Governo" },
-  { nome: "Funai", setor: "Governo" },
-  { nome: "Exército Brasileiro", setor: "Defesa" },
-  { nome: "Marinha do Brasil", setor: "Defesa" },
-  { nome: "Amaggi", setor: "Agronegócio" },
-  { nome: "SLC Agrícola", setor: "Agronegócio" },
-  { nome: "Bunge", setor: "Agronegócio" },
-  { nome: "COPEL", setor: "Energia" },
-  { nome: "CHESF", setor: "Energia" },
-  { nome: "Eletronorte", setor: "Energia" },
-  { nome: "Samarco", setor: "Mineração" },
-];
-
-const setores = [
-  "Todos",
-  "Agronegócio",
-  "Mineração",
-  "Petróleo & Gás",
-  "Governo",
-  "Defesa",
-  "Energia",
-  "Alimentos",
-  "Papel e Celulose",
+  { nome: "Petrobras", setor: "Petróleo & Gás", cor: "#004B2D" },
+  { nome: "Claro", setor: "Telecom", cor: "#DA291C" },
+  { nome: "IBGE", setor: "Governo", cor: "#1B3A6B" },
+  { nome: "PetroRio", setor: "Petróleo & Gás", cor: "#00857C" },
+  { nome: "RNP", setor: "Educação & Pesquisa", cor: "#003B71" },
+  { nome: "TRE-Amazonas", setor: "Governo / Justiça Eleitoral", cor: "#009B3A" },
+  { nome: "TRE-Pará", setor: "Governo / Justiça Eleitoral", cor: "#009B3A" },
+  { nome: "SENAR", setor: "Agronegócio", cor: "#4A7C2E" },
+  { nome: "Vibra", setor: "Energia", cor: "#00205B" },
 ];
 
 const Clientes = () => {
-  const [filtro, setFiltro] = React.useState("Todos");
-
-  const clientesFiltrados =
-    filtro === "Todos" ? clientes : clientes.filter((c) => c.setor === filtro);
-
   return (
     <div className="page-clientes">
       <div className="page-hero">
@@ -62,34 +36,27 @@ const Clientes = () => {
 
       <section className="clientes-section">
         <div className="container">
-          <div className="filtros">
-            {setores.map((setor, index) => (
-              <button
-                key={index}
-                className={`filtro-btn ${filtro === setor ? "active" : ""}`}
-                onClick={() => setFiltro(setor)}
-              >
-                {setor}
-              </button>
-            ))}
+          <div className="section-label">
+            <span className="line"></span>
+            <span className="label-text">ALGUNS DOS NOSSOS CLIENTES</span>
+            <span className="line"></span>
           </div>
 
-          <div className="clientes-grid">
-            {clientesFiltrados.map((cliente, index) => (
-              <div key={index} className="cliente-card">
-                <div className="cliente-logo">
-                  <span className="logo-placeholder">
-                    {cliente.nome.charAt(0)}
+          <div className="clientes-logo-grid">
+            {clientes.map((cliente, index) => (
+              <div key={index} className="cliente-logo-card">
+                <div
+                  className="cliente-logo-box"
+                  style={{ borderColor: cliente.cor + "40" }}
+                >
+                  <span
+                    className="cliente-sigla"
+                    style={{ color: cliente.cor }}
+                  >
+                    {cliente.nome}
                   </span>
                 </div>
-                <div className="cliente-info">
-                  <h4>{cliente.nome}</h4>
-                  <span className="cliente-setor">{cliente.setor}</span>
-                </div>
-                <div className="cliente-status">
-                  <span className="pulse-dot green"></span>
-                  ATIVO
-                </div>
+                <span className="cliente-setor-label">{cliente.setor}</span>
               </div>
             ))}
           </div>
@@ -98,18 +65,8 @@ const Clientes = () => {
             <div className="stat-card">
               <div className="stat-icon">
                 <svg viewBox="0 0 32 32" fill="none">
-                  <circle
-                    cx="16"
-                    cy="10"
-                    r="6"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  />
-                  <path
-                    d="M4 28c0-6.627 5.373-12 12-12s12 5.373 12 12"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  />
+                  <circle cx="16" cy="10" r="6" stroke="currentColor" strokeWidth="2" />
+                  <path d="M4 28c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="currentColor" strokeWidth="2" />
                 </svg>
               </div>
               <span className="stat-num">500+</span>
@@ -118,16 +75,8 @@ const Clientes = () => {
             <div className="stat-card">
               <div className="stat-icon">
                 <svg viewBox="0 0 32 32" fill="none">
-                  <path
-                    d="M16 4L28 10v12L16 28 4 22V10l12-6z"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  />
-                  <path
-                    d="M16 16v12M16 16L4 10M16 16l12-6"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  />
+                  <path d="M16 4L28 10v12L16 28 4 22V10l12-6z" stroke="currentColor" strokeWidth="2" />
+                  <path d="M16 16v12M16 16L4 10M16 16l12-6" stroke="currentColor" strokeWidth="2" />
                 </svg>
               </div>
               <span className="stat-num">20+</span>
@@ -136,13 +85,7 @@ const Clientes = () => {
             <div className="stat-card">
               <div className="stat-icon">
                 <svg viewBox="0 0 32 32" fill="none">
-                  <circle
-                    cx="16"
-                    cy="16"
-                    r="12"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  />
+                  <circle cx="16" cy="16" r="12" stroke="currentColor" strokeWidth="2" />
                   <path d="M16 8v8l6 4" stroke="currentColor" strokeWidth="2" />
                 </svg>
               </div>
@@ -152,11 +95,7 @@ const Clientes = () => {
             <div className="stat-card">
               <div className="stat-icon">
                 <svg viewBox="0 0 32 32" fill="none">
-                  <path
-                    d="M16 4l3 10h10l-8 6 3 10-8-6-8 6 3-10-8-6h10l3-10z"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  />
+                  <path d="M16 4l3 10h10l-8 6 3 10-8-6-8 6 3-10-8-6h10l3-10z" stroke="currentColor" strokeWidth="2" />
                 </svg>
               </div>
               <span className="stat-num">4.9</span>

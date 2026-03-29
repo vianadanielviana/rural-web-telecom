@@ -3,6 +3,33 @@ import "../styles/Plataformas.css";
 
 const plataformas = [
   {
+    nome: "Gilat SkyEdge II C",
+    tipo: "VSAT/TDMA",
+    status: "ATIVO",
+    descricao:
+      "Plataforma VSAT de alta performance da Gilat para redes corporativas, com arquitetura hub centralizado e eficiência em Banda C.",
+    features: ["Hub Central", "TDMA", "Banda C", "Multi-Serviço"],
+    logo: "Gilat",
+  },
+  {
+    nome: "Gilat SkyEdge II CX",
+    tipo: "VSAT/DVB-S2X",
+    status: "ATIVO",
+    descricao:
+      "Evolução da plataforma SkyEdge II com suporte a DVB-S2X, maior throughput e eficiência espectral avançada.",
+    features: ["DVB-S2X", "Alta Capacidade", "Mesh", "IoT Ready"],
+    logo: "Gilat",
+  },
+  {
+    nome: "Comtech UHP",
+    tipo: "TDMA/SCPC",
+    status: "ATIVO",
+    descricao:
+      "Plataforma de comunicação via satélite de ultra alta performance, ideal para redes corporativas e governamentais.",
+    features: ["Ultra High Performance", "TDMA", "SCPC", "Low Latency"],
+    logo: "Comtech",
+  },
+  {
     nome: "iDirect",
     tipo: "TDMA/SCPC",
     status: "ATIVO",
@@ -10,51 +37,6 @@ const plataformas = [
       "Plataforma líder mundial em comunicações via satélite, oferecendo soluções DVB-S2X e TDMA de alta eficiência.",
     features: ["DVB-S2X", "Mobility", "Hub Virtual", "Multi-Banda"],
     logo: "iDirect",
-  },
-  {
-    nome: "Comtech",
-    tipo: "SCPC/MCPC",
-    status: "ATIVO",
-    descricao:
-      "Soluções robustas para comunicações críticas, otimizadas para carrier-grade e aplicações de defesa.",
-    features: ["DoD Certified", "Heights™", "Troposcatter", "SCPC"],
-    logo: "Comtech",
-  },
-  {
-    nome: "Hughes",
-    tipo: "Jupiter System",
-    status: "ATIVO",
-    descricao:
-      "Sistema Jupiter de alta capacidade para banda larga via satélite, com tecnologia de acesso de última geração.",
-    features: ["HT2000", "Jupiter Ka", "Managed Services", "VSAT"],
-    logo: "Hughes",
-  },
-  {
-    nome: "Newtec",
-    tipo: "DVB-S2X",
-    status: "ATIVO",
-    descricao:
-      "Tecnologia de ponta em modulação e codificação, maximizando a eficiência espectral.",
-    features: ["Dialog®", "Mx-DMA®", "Clean Channel", "DVB-S2X"],
-    logo: "Newtec",
-  },
-  {
-    nome: "Gilat",
-    tipo: "Multi-Application",
-    status: "ATIVO",
-    descricao:
-      "Plataforma versátil para aplicações fixas e móveis, incluindo IoT e comunicações marítimas.",
-    features: ["SkyEdge II-c", "Mesh", "IoT Ready", "Maritime"],
-    logo: "Gilat",
-  },
-  {
-    nome: "Advantech",
-    tipo: "SCPC/MF-TDMA",
-    status: "ATIVO",
-    descricao:
-      "Equipamentos de alta confiabilidade para operadoras e integradores de sistemas.",
-    features: ["Solid State", "Block Up", "Redundancy", "Remote I/O"],
-    logo: "Advantech",
   },
 ];
 
@@ -134,7 +116,7 @@ const Plataformas = () => {
         <div className="container">
           <div className="stats-grid">
             <div className="stat-item">
-              <span className="stat-number">6+</span>
+              <span className="stat-number">4</span>
               <span className="stat-label">Plataformas</span>
             </div>
             <div className="stat-item">
