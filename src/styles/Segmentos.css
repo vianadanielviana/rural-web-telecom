@@ -1,0 +1,199 @@
+/* Segmentos Page Styles - High-Tech Design */
+
+.page-segmentos {
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.page-segmentos .page-hero {
+  position: relative;
+  padding: 80px 0;
+  background: linear-gradient(
+    180deg,
+    var(--color-primary) 0%,
+    rgba(10, 15, 26, 0.95) 100%
+  );
+  overflow: hidden;
+}
+
+.page-segmentos .grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+.page-segmentos .scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent),
+    transparent
+  );
+  animation: scanline 4s linear infinite;
+  opacity: 0.5;
+}
+
+/* Segmentos Section */
+.segmentos-section {
+  padding: 80px 0;
+}
+
+.segmentos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+/* Segmento Card */
+.segmento-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.segmento-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    var(--color-accent-alt)
+  );
+  border-radius: 16px 16px 0 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.segmento-card:hover {
+  border-color: rgba(0, 212, 255, 0.3);
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 60px rgba(0, 212, 255, 0.1);
+}
+
+.segmento-card:hover::before {
+  opacity: 1;
+}
+
+.seg-icon {
+  width: 64px;
+  height: 64px;
+  padding: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.15),
+    rgba(0, 255, 136, 0.08)
+  );
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 16px;
+  color: var(--color-accent);
+  margin-bottom: 24px;
+}
+
+.seg-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.seg-nome {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.seg-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.seg-cases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.case-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.case-tag svg {
+  color: var(--color-accent);
+}
+
+.seg-stats {
+  display: flex;
+  gap: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    var(--color-accent),
+    var(--color-accent-alt)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-key {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .segmentos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .segmento-card {
+    padding: 24px;
+  }
+}

@@ -1,0 +1,53 @@
+:root {
+  /* Colors - High-Tech */
+  --color-primary: #0a0f1a;
+  --color-primary-light: #141b2d;
+  --color-secondary: #1a2744;
+  --color-accent: #00d4ff;
+  --color-accent-alt: #00ff88;
+  --color-accent-orange: #ff6b35;
+  --color-white: #ffffff;
+  --color-text-main: #e2e8f0;
+  --color-text-light: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-background: #0a0f1a;
+  --color-background-alt: #0f1629;
+  --color-card: rgba(20, 27, 45, 0.8);
+  --color-border: rgba(0, 212, 255, 0.2);
+
+  /* Glows */
+  --glow-cyan: 0 0 20px rgba(0, 212, 255, 0.4);
+  --glow-cyan-strong: 0 0 40px rgba(0, 212, 255, 0.6);
+  --glow-green: 0 0 20px rgba(0, 255, 136, 0.4);
+
+  /* Typography */
+  --font-family-main: "Inter", "Segoe UI", sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+  --font-size-5xl: 3.5rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  --spacing-4xl: 5rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}

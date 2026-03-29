@@ -1,0 +1,243 @@
+/* VSATs Page Styles - High-Tech Design */
+
+.page-vsats {
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.page-vsats .page-hero {
+  position: relative;
+  padding: 80px 0;
+  background: linear-gradient(
+    180deg,
+    var(--color-primary) 0%,
+    rgba(10, 15, 26, 0.95) 100%
+  );
+  overflow: hidden;
+}
+
+.page-vsats .grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+.page-vsats .scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent),
+    transparent
+  );
+  animation: scanline 4s linear infinite;
+  opacity: 0.5;
+}
+
+/* VSATs Section */
+.vsats-section {
+  padding: 80px 0;
+}
+
+.vsats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 24px;
+}
+
+/* VSAT Card */
+.vsat-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.vsat-card:hover {
+  border-color: rgba(0, 212, 255, 0.3);
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 60px rgba(0, 212, 255, 0.1);
+}
+
+.vsat-visual {
+  padding: 32px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.08),
+    rgba(0, 255, 136, 0.04)
+  );
+  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.vsat-icon {
+  width: 80px;
+  height: 80px;
+  color: var(--color-accent);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.vsat-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.vsat-type {
+  padding: 6px 16px;
+  background: rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--color-accent);
+}
+
+.vsat-content {
+  padding: 24px;
+}
+
+.vsat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.vsat-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.vsat-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  border-radius: 20px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--color-accent-alt);
+  white-space: nowrap;
+}
+
+.vsat-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.vsat-specs {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.spec-row:last-child {
+  border-bottom: none;
+}
+
+.spec-key {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: capitalize;
+}
+
+.spec-val {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+/* CTA Section */
+.vsats-cta {
+  padding: 0 0 80px;
+}
+
+.cta-box {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 40px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.08),
+    rgba(0, 255, 136, 0.04)
+  );
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 16px;
+}
+
+.cta-icon {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.cta-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cta-content {
+  flex: 1;
+}
+
+.cta-content h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.cta-content p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .vsats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .vsat-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
