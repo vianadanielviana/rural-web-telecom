@@ -3,69 +3,82 @@ import "../styles/Vsats.css";
 
 const vsats = [
   {
-    nome: "Gilat Gemini",
-    tipo: "VSAT Platform",
+    nome: "Antena VSAT 1.2m",
+    tipo: "Banda Ku",
     status: "DISPONÍVEL",
     specs: {
-      plataforma: "SkyEdge II",
+      diametro: "1.2 metros",
+      frequencia: "Ku Band (10.7-12.75 GHz)",
+      ganho: "42.5 dBi",
+      material: "Alumínio Premium",
+    },
+    descricao:
+      "Antena compacta ideal para locais remotos com espaço limitado. Alta performance em condições adversas.",
+  },
+  {
+    nome: "Antena VSAT 1.8m",
+    tipo: "Banda C/Ku",
+    status: "DISPONÍVEL",
+    specs: {
+      diametro: "1.8 metros",
+      frequencia: "C/Ku Band",
+      ganho: "45.2 dBi",
+      material: "Fibra de Carbono",
+    },
+    descricao:
+      "Antena versátil para aplicações empresariais, suportando múltiplas bandas com alta estabilidade.",
+  },
+  {
+    nome: "Antena VSAT 2.4m",
+    tipo: "Banda C",
+    status: "DISPONÍVEL",
+    specs: {
+      diametro: "2.4 metros",
+      frequencia: "C Band (3.7-4.2 GHz)",
+      ganho: "48.1 dBi",
+      material: "Aço Galvanizado",
+    },
+    descricao:
+      "Maior resistência a chuvas tropicais. Ideal para regiões com alta pluviosidade.",
+  },
+  {
+    nome: "Modem iDirect X7",
+    tipo: "TDMA/SCPC",
+    status: "DISPONÍVEL",
+    specs: {
       throughput: "Até 200 Mbps",
       modulacao: "DVB-S2X",
-      aplicacao: "Corporativo / Governo",
-    },
-    descricao:
-      "Terminal VSAT de alta performance da Gilat, projetado para redes corporativas e governamentais com máxima confiabilidade.",
-  },
-  {
-    nome: "Gilat Capricorn",
-    tipo: "VSAT Platform",
-    status: "DISPONÍVEL",
-    specs: {
-      plataforma: "SkyEdge II-c",
-      throughput: "Até 150 Mbps",
-      modulacao: "DVB-S2",
-      aplicacao: "Enterprise / Rural",
-    },
-    descricao:
-      "Terminal VSAT compacto e versátil da Gilat, ideal para conectividade em áreas remotas e aplicações empresariais.",
-  },
-  {
-    nome: "Comtech UHP",
-    tipo: "TDMA/SCPC",
-    status: "DISPONÍVEL",
-    specs: {
-      throughput: "Até 450 Mbps",
-      modulacao: "DVB-S2X",
-      interfaces: "GigE, Serial, USB",
-      aplicacao: "Carrier-Grade",
-    },
-    descricao:
-      "Terminal VSAT de ultra alta performance da Comtech para redes de alta capacidade e baixa latência.",
-  },
-  {
-    nome: "iDirect X3 e X5",
-    tipo: "TDMA/SCPC",
-    status: "DISPONÍVEL",
-    specs: {
-      throughput: "Até 100 Mbps (X5)",
-      modulacao: "DVB-S2X",
-      interfaces: "GigE, WiFi",
+      interfaces: "GigE, USB, WiFi",
       alimentacao: "48 VDC",
     },
     descricao:
-      "Modems VSAT da iDirect com suporte a DVB-S2X, aceleração WAN e gerenciamento remoto para redes corporativas.",
+      "Modem de alta performance com suporte a DVB-S2X e tecnologia de aceleração WAN integrada.",
   },
   {
-    nome: "Viasat Surf Beam 2 Plus",
-    tipo: "Banda Ka",
+    nome: "BUC 8W Ku-Band",
+    tipo: "Block Up Converter",
     status: "DISPONÍVEL",
     specs: {
-      throughput: "Até 100 Mbps",
-      modulacao: "Proprietária Viasat",
-      frequencia: "Ka Band",
-      aplicacao: "Residencial / Empresarial",
+      potencia: "8 Watts",
+      frequencia: "13.75-14.5 GHz",
+      ganho: "55 dB",
+      peso: "1.8 kg",
     },
     descricao:
-      "Terminal de banda larga via satélite em Banda Ka da Viasat, oferecendo alta velocidade para residências e empresas.",
+      "Transmissor compacto e eficiente para aplicações VSAT de média capacidade.",
+  },
+  {
+    nome: "LNB Universal",
+    tipo: "Low Noise Block",
+    status: "DISPONÍVEL",
+    specs: {
+      noiseFigure: "0.3 dB",
+      frequencia: "10.7-12.75 GHz",
+      ganho: "65 dB",
+      voltagem: "13/18V",
+    },
+    descricao:
+      "Receptor de baixo ruído para máxima qualidade de sinal e performance superior.",
   },
 ];
 

@@ -45,19 +45,18 @@ const About = () => {
   };
 
   useEffect(() => {
-    const currentRef = sectionRef.current;
-    if (!currentRef) return;
-
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !countersStarted) {
           setCountersStarted(true);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+      { threshold: 0.3 },
     );
 
-    observer.observe(currentRef);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
     return () => observer.disconnect();
   }, [countersStarted]);

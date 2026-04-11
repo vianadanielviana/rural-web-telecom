@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "../styles/Fotos.css";
 
+// URLs das imagens do site original
+const BASE_URL = "https://blog.ruralwebtelecom.com.br";
+
 const categorias = [
   {
     nome: "Teleporto",
@@ -8,15 +11,10 @@ const categorias = [
     fotos: [
       {
         id: 1,
-        titulo: "Vista Aérea Teleporto",
-        desc: "Vista aérea do centro de operações",
+        titulo: "Teleporto RuralWeb",
+        desc: "Centro de operações de telecomunicações",
+        imagem: `${BASE_URL}/imagens/quem-somos.jpg`,
       },
-      {
-        id: 2,
-        titulo: "Sala de Controle",
-        desc: "Centro de monitoramento 24/7",
-      },
-      { id: 3, titulo: "Infraestrutura", desc: "Equipamentos de transmissão" },
     ],
   },
   {
@@ -24,47 +22,65 @@ const categorias = [
     descricao: "Antenas de transmissão e recepção",
     fotos: [
       {
-        id: 4,
-        titulo: "Antena 4.5m",
-        desc: "Antena parabólica de alta capacidade",
+        id: 2,
+        titulo: "Parque de Antenas",
+        desc: "Conjunto de antenas parabólicas",
+        imagem: `${BASE_URL}/assets/img/fotos-parque-de-antenas.jpg`,
       },
-      {
-        id: 5,
-        titulo: "Array de Antenas",
-        desc: "Conjunto de antenas multibanda",
-      },
-      { id: 6, titulo: "Antena 9m", desc: "Antena principal de transmissão" },
     ],
   },
   {
     nome: "Operações",
     descricao: "Equipe técnica em ação",
     fotos: [
-      { id: 7, titulo: "NOC", desc: "Network Operations Center" },
-      { id: 8, titulo: "Monitoramento", desc: "Equipe de suporte técnico" },
-      { id: 9, titulo: "Manutenção", desc: "Técnicos em campo" },
+      {
+        id: 3,
+        titulo: "Centro de Operações",
+        desc: "Monitoramento e controle 24/7",
+        imagem: `${BASE_URL}/assets/img/fotos-operacoes.jpg`,
+      },
     ],
   },
   {
     nome: "Infraestrutura",
     descricao: "Equipamentos e data center",
     fotos: [
-      { id: 10, titulo: "Data Center", desc: "Servidores e roteadores" },
-      { id: 11, titulo: "Rack de Modems", desc: "Equipamentos de comunicação" },
-      { id: 12, titulo: "Energia", desc: "Sistema de energia redundante" },
+      {
+        id: 4,
+        titulo: "Data Center",
+        desc: "Infraestrutura de rede e servidores",
+        imagem: `${BASE_URL}/assets/img/fotos-infraestrutura.jpg`,
+      },
     ],
   },
   {
     nome: "Instalações",
     descricao: "Projetos e instalações em clientes",
     fotos: [
-      { id: 13, titulo: "Instalação Rural", desc: "VSAT em fazenda" },
       {
-        id: 14,
-        titulo: "Plataforma Offshore",
-        desc: "Antena em plataforma de petróleo",
+        id: 5,
+        titulo: "Instalação 01",
+        desc: "Projeto de instalação VSAT",
+        imagem: `${BASE_URL}/assets/img/fotos-instalacoes-01.jpg`,
       },
-      { id: 15, titulo: "Mineração", desc: "Sistema em área de mineração" },
+      {
+        id: 6,
+        titulo: "Instalação 02",
+        desc: "Antena instalada em cliente",
+        imagem: `${BASE_URL}/assets/img/fotos-instalacoes-02.jpg`,
+      },
+      {
+        id: 7,
+        titulo: "Instalação 03",
+        desc: "Sistema completo de comunicação",
+        imagem: `${BASE_URL}/assets/img/fotos-instalacoes-03.jpg`,
+      },
+      {
+        id: 8,
+        titulo: "Instalação 04",
+        desc: "Equipamentos em operação",
+        imagem: `${BASE_URL}/assets/img/fotos-instalacoes-04.jpg`,
+      },
     ],
   },
 ];
@@ -133,35 +149,13 @@ const Fotos = () => {
                 className="foto-card"
                 onClick={() => abrirModal(foto)}
               >
-                <div className="foto-placeholder">
-                  <div className="foto-icon">
-                    <svg viewBox="0 0 48 48" fill="none">
-                      <rect
-                        x="4"
-                        y="8"
-                        width="40"
-                        height="32"
-                        rx="4"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      />
-                      <circle
-                        cx="16"
-                        cy="20"
-                        r="4"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      />
-                      <path
-                        d="M44 32L32 22L20 32L12 26L4 32"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      />
-                    </svg>
-                  </div>
-                  <span className="foto-id">
-                    IMG_{foto.id.toString().padStart(4, "0")}
-                  </span>
+                <div className="foto-image-container">
+                  <img
+                    src={foto.imagem}
+                    alt={foto.titulo}
+                    className="foto-image"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="foto-info">
                   <h4>{foto.titulo}</h4>
@@ -201,36 +195,11 @@ const Fotos = () => {
               </svg>
             </button>
             <div className="modal-image">
-              <div className="foto-placeholder large">
-                <div className="foto-icon">
-                  <svg viewBox="0 0 48 48" fill="none">
-                    <rect
-                      x="4"
-                      y="8"
-                      width="40"
-                      height="32"
-                      rx="4"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    />
-                    <circle
-                      cx="16"
-                      cy="20"
-                      r="4"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    />
-                    <path
-                      d="M44 32L32 22L20 32L12 26L4 32"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    />
-                  </svg>
-                </div>
-                <span className="foto-id">
-                  IMG_{fotoSelecionada.id.toString().padStart(4, "0")}
-                </span>
-              </div>
+              <img
+                src={fotoSelecionada.imagem}
+                alt={fotoSelecionada.titulo}
+                className="modal-img"
+              />
             </div>
             <div className="modal-info">
               <h3>{fotoSelecionada.titulo}</h3>

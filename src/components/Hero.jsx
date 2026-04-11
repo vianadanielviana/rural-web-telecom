@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/Hero.css";
 
 const Hero = () => {
@@ -71,7 +70,18 @@ const Hero = () => {
   return (
     <section id="hero" className="hero">
       <div className="hero-background">
-        <img src="/hero-bg.png" alt="" className="hero-bg-image" />
+        <picture>
+          <source srcSet="/hero-bg.webp" type="image/webp" />
+          <img
+            src="/hero-bg.png"
+            alt=""
+            className="hero-bg-image"
+            loading="eager"
+            fetchPriority="high"
+            width="1024"
+            height="1024"
+          />
+        </picture>
         <div className="hero-overlay"></div>
         <div className="hero-grid"></div>
         <div className="hero-scanline"></div>

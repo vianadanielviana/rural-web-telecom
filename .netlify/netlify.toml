@@ -6,10 +6,9 @@ headers = []
 [functions."*"]
 
 [build]
-publish = "/Users/danielviana/Desktop/Projetos/Gravity - cópia/rural-web-telecom/dist"
+publish = "/Users/danielviana/Desktop/Gravity/rural-web-telecom/dist"
 publishOrigin = "ui"
 commandOrigin = "ui"
-base = "/Users/danielviana/Desktop/Projetos/Gravity - cópia/rural-web-telecom"
 command = "npm run build"
 
 [build.environment]

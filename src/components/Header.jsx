@@ -69,9 +69,6 @@ const Header = () => {
           <span></span>
         </button>
 
-        {isMenuOpen && (
-          <div className="menu-overlay" onClick={closeMenu}></div>
-        )}
         <nav className={`nav-menu ${isMenuOpen ? "active" : ""}`}>
           <Link
             to="/"

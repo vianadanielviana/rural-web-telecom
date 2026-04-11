@@ -1,12 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "../styles/Contact.css";
 
 const Contact = () => {
-  const [formState, setFormState] = useState({
-    status: "idle", // idle, loading, success, error
-    message: "",
-  });
-
+  const [formStatus, setFormStatus] = useState("idle"); // idle, submitting, success, error
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,40 +11,43 @@ const Contact = () => {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]),
+      )
+      .join("&");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormState({ status: "loading", message: "" });
+    setFormStatus("submitting");
 
     try {
-      const response = await fetch("https://formspree.io/f/xldqlkeb", {
+      const response = await fetch("/", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "contact",
+          ...formData,
+        }),
       });
 
       if (response.ok) {
-        setFormState({
-          status: "success",
-          message:
-            "Solicitação enviada com sucesso! Entraremos em contato em breve.",
-        });
+        setFormStatus("success");
         setFormData({ name: "", email: "", phone: "", message: "" });
       } else {
-        throw new Error("Erro no envio");
+        throw new Error("Falha no envio");
       }
     } catch (error) {
-      setFormState({
-        status: "error",
-        message:
-          "Erro ao enviar. Tente novamente ou entre em contato por email.",
-      });
+      setFormStatus("error");
+      console.error("Erro ao enviar formulário:", error);
     }
   };
 
@@ -139,7 +138,7 @@ const Contact = () => {
           </div>
 
           <div className="contact-form-container tech-card">
-            {formState.status === "success" ? (
+            {formStatus === "success" ? (
               <div className="form-success">
                 <div className="success-icon">
                   <svg
@@ -148,38 +147,28 @@ const Contact = () => {
                     stroke="currentColor"
                     strokeWidth="2"
                   >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
                     <polyline points="22 4 12 14.01 9 11.01" />
                   </svg>
                 </div>
-                <h3 className="success-title">Enviado com Sucesso!</h3>
-                <p className="success-message">{formState.message}</p>
+                <h3>Mensagem Enviada!</h3>
+                <p>
+                  Recebemos sua solicitação e entraremos em contato em breve.
+                </p>
                 <button
                   className="btn btn-outline"
-                  onClick={() => setFormState({ status: "idle", message: "" })}
+                  onClick={() => setFormStatus("idle")}
                 >
-                  Enviar nova solicitação
+                  Enviar outra mensagem
                 </button>
               </div>
             ) : (
-              <form className="contact-form" onSubmit={handleSubmit}>
+              <form
+                name="contact"
+                className="contact-form"
+                onSubmit={handleSubmit}
+              >
                 <h3 className="form-title">Solicitar Conexão</h3>
-
-                {formState.status === "error" && (
-                  <div className="form-error">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <line x1="12" y1="8" x2="12" y2="12" />
-                      <line x1="12" y1="16" x2="12.01" y2="16" />
-                    </svg>
-                    <span>{formState.message}</span>
-                  </div>
-                )}
 
                 <div className="form-row">
                   <div className="form-group">
@@ -189,10 +178,9 @@ const Contact = () => {
                       id="name"
                       name="name"
                       placeholder="Seu nome"
-                      required
                       value={formData.name}
                       onChange={handleChange}
-                      disabled={formState.status === "loading"}
+                      required
                     />
                   </div>
                   <div className="form-group">
@@ -202,10 +190,9 @@ const Contact = () => {
                       id="email"
                       name="email"
                       placeholder="seu@email.com"
-                      required
                       value={formData.email}
                       onChange={handleChange}
-                      disabled={formState.status === "loading"}
+                      required
                     />
                   </div>
                 </div>
@@ -219,7 +206,6 @@ const Contact = () => {
                     placeholder="(00) 00000-0000"
                     value={formData.phone}
                     onChange={handleChange}
-                    disabled={formState.status === "loading"}
                   />
                 </div>
 
@@ -230,36 +216,39 @@ const Contact = () => {
                     name="message"
                     rows="4"
                     placeholder="Descreva sua necessidade..."
-                    required
                     value={formData.message}
                     onChange={handleChange}
-                    disabled={formState.status === "loading"}
+                    required
                   ></textarea>
                 </div>
 
+                {formStatus === "error" && (
+                  <div className="form-error">
+                    <p>
+                      Erro ao enviar. Tente novamente ou entre em contato por
+                      email.
+                    </p>
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className={`btn btn-primary btn-full ${formState.status === "loading" ? "btn-loading" : ""}`}
-                  disabled={formState.status === "loading"}
+                  className="btn btn-primary btn-full"
+                  disabled={formStatus === "submitting"}
                 >
-                  {formState.status === "loading" ? (
-                    <>
-                      <span className="spinner"></span>
-                      <span>Enviando...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Enviar Solicitação</span>
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
-                      </svg>
-                    </>
-                  )}
+                  <span>
+                    {formStatus === "submitting"
+                      ? "Enviando..."
+                      : "Enviar Solicitação"}
+                  </span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                  </svg>
                 </button>
               </form>
             )}
